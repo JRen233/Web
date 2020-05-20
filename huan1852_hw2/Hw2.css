@@ -1,0 +1,98 @@
+/*For */
+.navBar {
+	background-color: yellow;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow:hidden;
+}
+.navBar li {
+	display: inline-block;
+	font-size: 20px;
+	padding: 20px;
+}
+
+.navBar li:hover {
+	background-color:#ddd;
+}
+
+
+/*For table*/
+.tablecs {
+  display:inline-block;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  vertical-align: top;
+}
+
+.tablecs td, .tablecs th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  height: 40px;
+  vertical-align: top;
+}
+
+.tablecs tr:nth-child(even){background-color: #f2f2f2;}
+
+.tablecs tr:nth-child(odd){background-color: #ddd;}
+
+.tablecs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#ddd;
+}
+.tablecs tr img {
+  display: none;
+}
+
+
+.tablecs tr:hover img {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+
+#myImage {
+  display:inline-block;
+	width:32%;
+
+}
+
+body {
+	background-color: lightblue;
+}
+
+/*For form*/
+.t1 {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  background-color: white;
+  margin: auto;
+}
+
+.t1 td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  height: 40px;
+  vertical-align: top;
+}
+
+/*For grid*/
+#p3 .grid-container {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+/*For passwaord*/
+.class1 {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 100px;
+  height: 40px;
+}

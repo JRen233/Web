@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset = "utf-8">
+	<title>simple form</title>
+	<link rel="stylesheet" type="text/css" href="Hw2.css">
+  </head>
+  <body>
+  	<ul class="navBar">
+		<li><a href="myContacts.html">My Contacts</a></li>
+		<li><a href="myForm.html">My Form</a></li>
+		<li><a href="myWidgets.html">My Widgets</a></li>
+
+	</ul>
+	<br>
+	<br>
+		<form method="GET" action = "http://www-users.cselabs.umn.edu/~liux4189/echo.php"> 
+		<table class="t1">
+			<tr>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Name</td>
+			<td><input id = "name" name = "name" type = "text" size = "25" maxlength = "30" required pattern="[a-zA-Z0-9 ]+"></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input id = "email" name="email" type = "email" size = "25" maxlength = "50" required></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><input id = "address" name ="address" type = "text" size = "25" maxlength = "30" required></td>
+			</tr>
+			<tr>
+				<td>Facorite Place</td>
+				<td><input id = "place" name = "place" type = "text" size = "25" maxlength = "30" required pattern="[a-zA-Z0-9 ]+"></td>
+			</tr>
+			<tr>
+				<td> Enter URL for the Favorite Place </td>
+				<td><input id = "url" name = "url" type = "url" size = "25" maxlength = "250"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type = "submit" value="submit"></td>
+			</tr>
+		</table>
+		</form>
+  </body>
+</html>

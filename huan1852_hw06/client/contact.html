@@ -1,0 +1,120 @@
+﻿<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+	 //Note - this is an outline of ONE potential solution
+	 //using JavaScript (not jquery) - but you are free to use jquery
+	 //or any solution that YOU create that works.
+	 //define AJAX GET request to endpoint in sever
+	 //getContact and process JSON string obtained
+	 //from server - contains a stringified version of contact.json
+	 //outline
+	 function processContactsJson(){
+		var xmlhttp = new XMLHttpRequest();
+		var url = "/getListOfContacts";
+    console.log("==============================");
+
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				// var obj = JSON.parse(xmlhttp.responseText);
+				// var contactArray = obj.contact;
+				// createNdisplayContacts(contactArray);
+        var obj = JSON.parse(xmlhttp.responseText);
+        console.log(obj);
+        //createNdisplayContacts(obj);
+
+        var outstring = '';
+        var i;
+        for(i = 0; i< obj.length; i++) {
+          console.log(obj[i]);
+          // var row = cArray[key];
+          outstring += '<tr>'+'<td>' + obj[i].contact_name + '</td>' + '<td>' + obj[i].contact_email
+          + '</td>' + '<td>' + obj[i].contact_address + '</td>' + '<td>'
+          + obj[i].contact_phone + '</td>' + '<td>' + '<a href = "' +
+          obj[i].contact_favoriteplaceurl + '">' + obj[i].contact_favoriteplace + '</a>'
+          + '</td>' + '</tr>';
+        }
+        var tableV = document.getElementById("contactTable").getElementsByTagName('tbody')[0];
+        //var tableV = document.getElementById("contactTable")
+        tableV.innerHTML = outstring;
+			}
+		}
+
+		xmlhttp.open("GET",url,true);
+		xmlhttp.send();
+	 }
+
+	 // This function loops through the array and builds a big string
+	 // embedding the information in the contacts array into rows in a table using
+	 // the html tr and td, and then appends the string to the table body
+	 function createNdisplayContacts(cArray) {
+	   // Outline
+	   // initialize string you will append to the table body
+	   var outstring = '';
+     console.log(cArray);
+     var i;
+     for(i = 0; i< obj.length; i++) {
+       // var row = cArray[key];
+       outstring += '<tr>'+'<td>' + obj[i].name + '</td>' + '<td>' + obj[i].email
+       + '</td>' + '<td>' + obj[i].address + '</td>' + '<td>'
+       + obj[i].phoneNumber + '</td>' + '<td>' + '<a href = "' +
+       obj[i].favoritePlaceURL + '">' + obj[i].favoritePlace + '</a>'
+       + '</td>' + '</tr>';
+     }
+     // for(i = 0; i < cArray.length; i++) {
+     //     outstring += '<tr>'+'<td>' + cArray[i].name + '</td>' + '<td>' + cArray[i].email
+     //     + '</td>' + '<td>' + cArray[i].address + '</td>' + '<td>'
+     //     + cArray[i].phoneNumber + '</td>' + '<td>' + '<a href = "' +
+     //     cArray[i].favoritePlaceURL + '">' + cArray [i].favoritePlace + '</a>'
+     //     + '</td>' + '</tr>';
+     // }
+	   // append output string to table body
+	   // hint, Document.getElementsbyTagName to obtain the table body
+	   // and then set innerHTML of table body DOM object the output string outstring
+     var tableV = document.getElementById("contactTable").getElementsByTagName('tbody')[0];
+     //var tableV = document.getElementById("contactTable")
+     tableV.innerHTML = outstring;
+	  }
+	  window.onload = processContactsJson();
+  </script>
+
+  </head>
+  <body>
+      <nav style="background-color: rgb(106,90,205,40%)" class="navbar navbar-default">
+          <div class="container-fluid">
+              <ul class="nav navbar-nav">
+                  <li><a href="/index"><b>Home</b></a></li>
+                  <li><a href="/contact"><b>Contact</b></a></li>
+                  <li><a href="/addContact"><b>Add Contact</b></a></li>
+                  <li><a href="/stock"><b>Stock Page</b></a></li>
+                  <li><a href="/logout"><b>Logout</b></a></li>
+              </ul>
+          </div>
+      </nav>
+      <br><br>
+      <div class="container">
+          <table class="table" id="contactTable">
+              <thead>
+                  <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Favorite Place</th>
+                  </tr>
+              </thead>
+              <tbody></tbody>
+          </table>
+      </div>
+      <script type="text/javascript">
+
+      // TODO: Fetch contact.json data from the server and display it in the contactTable
+
+      </script>
+  </body>
+</html>

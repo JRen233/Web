@@ -1,0 +1,26 @@
+<!Doctype html>
+<html>
+<head>
+	<title>clock</title>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<input type="text" id="clock">
+	<script language=javascript>
+	var int;
+	function startClock() {
+		int = setInterval(function(){clock();},1000);
+	}
+	function clock() {
+		var datetoday = new Data();
+		var timenew = datatoday.toLocalTimeString();
+		document.getElementById("clock").value = timenow;
+	}
+	function clearClock() {document getElementById("clock").value="";}
+	</script>
+	<button onclick = "startClock()">start</button>
+	<button onclick = "interval=clearInterval<internal>">stop</button>
+	<button onclick = "clearClock()">clear</button>
+</body>
+
+</html>

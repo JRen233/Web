@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script>
+       //Note - this is an outline of ONE potential solution
+       //using JavaScript (not jquery) - but you are free to use jquery
+       //or any solution that YOU create that works.
+       //define AJAX GET request to endpoint in sever
+       //getContact and process JSON string obtained
+       //from server - contains a stringified version of contact.json
+       //outline
+       function processContactsJson(){
+        var xmlhttp = new XMLHttpRequest();
+        var url = "/getflag";
+        console.log("++++++++++++++++++");
+        xmlhttp.onreadystatechange = function() {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var obj = xmlhttp.responseText;
+            console.log(obj);
+            Invalid(obj);
+          }
+        }
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send();
+       }
+       function Invalid(obj) {
+         if(obj === "err") {
+           console.log("================================");
+           var dirV = document.getElementById("invalid");
+           dirV.innerHTML = "invalid credentials. Please try again";
+           dirV.style.textAlign = "center";
+         }
+       }
+      window.onload = processContactsJson();
+    </script>
+  </head>
+  <body>
+    <div class="jumbotron" style="background: DarkSeaGreen !important; text-align:center">
+      <h1>Login Page</h1>
+      <p>Please enter your user name and password, both are case sensitive</p>
+    </div>
+    <div id = "invalid" style="background-color: rgb(255,0,0,30%)"></div>
+    <form name="login" method="post" action="/sendLoginDetails">
+      <lable>User:</lable><br>
+      <input type="text" class="form-control" name="Username" required maxlength="20"><br>
+      <lable>Password:</lable><br>
+      <input type="password" class="form-control" name="Password" required maxlength="50"><br>
+      <input type = "submit" class="btn btn-primary btn-block">
+    </form>
+  </body>
+</html>
